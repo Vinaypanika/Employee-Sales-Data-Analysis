@@ -1,0 +1,46 @@
+-- Employee & Sales Data Analysis Using SQL Server
+
+-- Creating Database Schema
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY IDENTITY(1,1),
+    DepartmentName VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Salary INT NOT NULL,
+    DepartmentID INT FOREIGN KEY REFERENCES Departments(DepartmentID),
+    ManagerID INT NULL REFERENCES Employees(EmployeeID),
+    HireDate DATE NOT NULL
+);
+
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY IDENTITY(1,1),
+    EmployeeID INT FOREIGN KEY REFERENCES Employees(EmployeeID) ON DELETE CASCADE,
+    SaleAmount DECIMAL(10,2) NOT NULL CHECK (SaleAmount > 0),
+    SaleDate DATE NOT NULL
+);
+
+-- Inserting Sample Data
+INSERT INTO Departments (DepartmentName) VALUES
+('HR'), ('IT'), ('Sales'), ('Finance');
+
+INSERT INTO Employees (FirstName, LastName, Salary, DepartmentID, ManagerID, HireDate) VALUES
+('Vinay', 'Panika', 70000, 2, NULL, '2018-06-12'),
+('Awadhesh', 'Yadav', 75000, 2, 1, '2019-07-19'),
+('Nevendra', 'Rajput', 80000, 3, 1, '2020-08-05'),
+('Himanshu', 'Sahu', 60000, 1, 2, '2021-09-10'),
+('Piyush', 'Chaturvedi', 80000, 3, 3, '2022-03-25'),
+('Rituraj', 'Pawar', 90000, 4, NULL, '2017-02-28'),
+('Ashish', 'Singh', 72000, 2, 2, '2017-01-15'),
+('Divyansh', 'Kumar', 65000, 3, 3, '2023-07-10'),
+('Chetan', 'Singh', 75000, 3, 3, '2023-06-15');
+
+INSERT INTO Sales (EmployeeID, SaleAmount, SaleDate) VALUES
+(3, 1500.50, '2024-01-10'),
+(3, 2500.75, '2024-02-12'),
+(5, 1800.00, '2024-03-15'),
+(2, 2200.30, '2024-03-20'),
+(4, 2750.90, '2024-04-05');
