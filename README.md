@@ -48,7 +48,9 @@ INSERT INTO Sales (EmployeeID, SaleAmount, SaleDate) VALUES
 ## SQL Queries for Analysis
 
 ## 1. Retrieve all employee details
+```
 SELECT * FROM Employees;
+```
 
 ## 2. List employees who earn more than ₹75,000
 SELECT * FROM Employees WHERE Salary > 75000;
