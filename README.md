@@ -48,7 +48,7 @@ INSERT INTO Sales (EmployeeID, SaleAmount, SaleDate) VALUES
 ## SQL Queries for Analysis
 
 ## 1. Retrieve all employee details
-```
+```sql
 SELECT * FROM Employees;
 ```
 
