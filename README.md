@@ -1,6 +1,9 @@
 ## Employee & Sales Data Analysis Using SQL Server
 
-## Creating Database Schema
+
+-- Employee & Sales Data Analysis Using SQL Server
+
+-- Creating Database Schema
 CREATE TABLE Departments (
     DepartmentID INT PRIMARY KEY IDENTITY(1,1),
     DepartmentName VARCHAR(100) NOT NULL
@@ -23,7 +26,7 @@ CREATE TABLE Sales (
     SaleDate DATE NOT NULL
 );
 
-## Inserting Sample Data
+-- Inserting Sample Data
 INSERT INTO Departments (DepartmentName) VALUES
 ('HR'), ('IT'), ('Sales'), ('Finance');
 
